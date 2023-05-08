@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="robots" content="index, follow" />
+	<meta name="HandheldFriendly" content="true" />
+	<title>Assignment 02</title>
+	<link rel="icon" href="./favicon.png" type="image/x-icon" />
+
+	<!-- Assets -->
+	<link type="text/css" href="template/css/app.css" rel="stylesheet" />
+	<link type="text/css" href="template/css/animate.lite.css" rel="stylesheet" />
+	<link type="text/css" href="template/css/main.css" rel="stylesheet" />
+
+	<!-- Fonts -->
+	<link type="text/css" href="template/fonts/font-awesome.css" rel="stylesheet" />
+	<link type="text/css" href="template/fonts/common.css" rel="stylesheet" />
+</head>
+
+<body class="container--fluid">
+	<header class="qh-header">
+		<div class="container">
+			<div class="row x--between y--center">
+				<div class="col row x--left y--center">
+					<span class="qh-header-toggle col col--min sm JS--ToggleAside">
+						<i class="fa fa-bars"></i>
+					</span>
+					<a class="qh-header-logo row y--center" href="index.html">
+						<div class="_name">Pet Manager</div>
+					</a>
+				</div>
+				<div class="col row x--right y--center space--10">
+					<button class="btn primary" id="action__new-pet"><i class="fa fa-plus icon"></i> Thêm
+						mới</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<aside class="qh-aside">
+		<div class="qh-aside-header">
+			<div class="_button JS--ToggleAside">
+				<div class="aside--open"><i class="fa fa-arrow-left"></i></div>
+				<div class="aside--close"><i class="fa fa-bars"></i></div>
+			</div>
+			<div class="_name"><span>Bảng điều khiển</span></div>
+		</div>
+		<div class="qh-aside-main">
+			<div class="_title">Quản lí thú cưng</div>
+			<div class="_menu">
+				<ul>
+					<li class="qh-aside-group active">
+						<a class="" href="./index.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-home"></i></div>
+								<div class="_card">
+									<span>Tổng quan</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="qh-aside-group">
+						<a class="" href="./search.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-search"></i></div>
+								<div class="_card">
+									<span>Tìm kiếm</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="qh-aside-group">
+						<a class="" href="./edit.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-pencil"></i></div>
+								<div class="_card">
+									<span>Chỉnh sửa</span>
+								</div>
+							</div>
+						</a>
+					</li>
+
+					<li class="qh-aside-group">
+						<a class="" href="./breed.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-list-ul"></i></div>
+								<div class="_card">
+									<span>Giống</span>
+								</div>
+							</div>
+						</a>
+					</li>
+
+					<li class="qh-aside-group">
+						<a class="" href="./data.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-cloud"></i></div>
+								<div class="_card">
+									<span>Cơ sở dữ liệu</span>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+
+		</div>
+	</aside>
+
+	<main class="qh-main box">
+		<section>
+			<div class="row x--between y--center">
+				<div class="row y--center space--10">
+					<div style="margin-right: 20px">
+						<h4 class="clear--margin">Bộ lọc:</h4>
+					</div>
+					<div class="row y--center space--10" id="area__filter-options">
+						<button class="btn orange" onclick="showHealthyPet();">Healthy Pet</button>
+						<button class="btn orange" onclick="filterPet('type', 'Dog');">Dog Only</button>
+						<button class="btn orange" onclick="filterPet('type', 'Cat');">Cat only</button>
+					</div>
+					<div class="hidden" id="area__filter-clear">
+						<button class="btn red" onclick="clearFilter();"><i class="fa fa-close"></i> Tắt bộ lọc</button>
+					</div>
+				</div>
+				<div>
+					<!-- right menu -->
+				</div>
+			</div>
+			<div class="gap--10"></div>
+			<div class="table scroll border align--center">
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Type</th>
+							<th>Weight</th>
+							<th>Length</th>
+							<th>BMI</th>
+							<th>Breed</th>
+							<th>Color</th>
+							<th>Vaccinated</th>
+							<th>Dewormed</th>
+							<th>Sterilized</th>
+							<th>Date Added</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="area__pets-table">
+
+					</tbody>
+				</table>
+				<div id="area__no-data" class="box--20">Chưa có dữ liệu</div>
+			</div>
+		</section>
+
+		<!-- add new pet -->
+		<div id="popup__add-new" class="hidden">
+			<div class="popup">
+				<div class="popup-container">
+					<div class="card" style="width: 800px;">
+						<form action="javascript:;" method="post"></form>
+						<div class="card-header primary--bg row x--between y--center">
+							Nhập thông tin thú cưng
+							<button type="button" class="btn close">Đóng</button>
+						</div>
+						<div class="card-body" id="area__add-new-form">
+
+							<div class="box--20 red--bg red--border border mb hidden" id="area__add-new-error"></div>
+							<div class="form-group row y--center">
+								<label for="in__new-id" class="col--3">Pet ID</label>
+								<div class="col--9">
+									<input type="text" class="textbox" id="in__new-id" placeholder="Input ID">
+								</div>
+							</div>
+							<div class="form-group row y--center">
+								<label for="in__new-name" class="col--3">Pet Name</label>
+								<div class="col--9">
+									<input type="text" class="textbox" id="in__new-name" placeholder="Input Name">
+								</div>
+							</div>
+							<div class="form-group row y--center">
+								<label for="in__new-age" class="col--3">Age</label>
+								<div class="col--3">
+									<input type="number" class="textbox" id="in__new-age" placeholder="Input Age">
+								</div>
+								<label for="in__new-color" class="col--3 align--center">Color</label>
+								<div class="col--3">
+									<input type="color" class="textbox" id="in__new-color" value="#888888">
+								</div>
+							</div>
+							<div class="form-group row y--center">
+								<label for="in__new-weight" class="col--3">Weight</label>
+								<div class="col--3">
+									<input type="number" class="textbox" id="in__new-weight" placeholder="Input Weight">
+								</div>
+
+								<label for="in__new-length" class="col--3 align--center">Length</label>
+								<div class="col--3">
+									<input type="number" class="textbox" id="in__new-length" placeholder="Input Length">
+								</div>
+							</div>
+							<div class="form-group row y--center">
+								<input type="hidden" name="cat" id="in__new-cat">
+								<label for="in__new-type" class="col--3">Type / Breed</label>
+								<div class="col--3">
+									<select class="textbox" id="in__new-type" onchange="showBreed();">
+										<option value="">Select Type</option>
+										<option value="Dog">Dog</option>
+										<option value="Cat">Cat</option>
+									</select>
+								</div>
+								<label for="in__new-breed" class="col--3 align--center">
+									<i class="fa fa-link"></i></label>
+								<div class="col--3">
+									<select class="textbox" id="in__new-breed" disabled>
+									</select>
+								</div>
+							</div>
+							<div class="gap--20"></div>
+							<div class="form-group row y--center">
+								<div class="col--3"></div>
+								<div class="checkbox col--3 space--10">
+									<input type="checkbox" id="in__new-vaccinated">
+									<label for="in__new-vaccinated">Vaccinated</label>
+								</div>
+								<div class="checkbox col--3 space--10">
+									<input type="checkbox" id="in__new-dewormed">
+									<label for="in__new-dewormed">Dewormed</label>
+								</div>
+								<div class="checkbox col--3 space--10">
+									<input type="checkbox" id="in__new-sterilized">
+									<label for="in__new-sterilized">Sterilized</label>
+								</div>
+							</div>
+							<div class="gap--10"></div>
+
+						</div>
+						<div class="card-footer" id="area__add-new-footer">
+							<button type="button" class="btn primary" id="action__submit-new-pet">Submit</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="overlay"></div>
+		</div>
+
+
+
+	</main>
+
+	<footer class="qh-footer">
+		<div class="qh-footer-backlink">
+			<div class="container">
+				<div class="row y--center x--between">
+					<div class="qh-footer-backlink">
+
+					</div>
+					<div>&copy; 2023</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Controls -->
+	<script type="text/javascript" src="./script/main.js"></script>
+	<script type="text/javascript" src="./script/index.js"></script>
+</body>
+
+</html>

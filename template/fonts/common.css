@@ -1,0 +1,72 @@
+/* 
+  montserrat
+ */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Bold.woff2') format('woff2'),
+  url('./Montserrat-Bold.otf')
+      format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Light.woff2') format('woff2'),
+  url('./Montserrat-Light.otf')
+      format('opentype');
+  font-weight: lighter;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Light.woff2') format('woff2'),
+  url('./Montserrat-Light.otf')
+      format('opentype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Regular.woff2') format('woff2'),
+  url('./Montserrat-Regular.otf')
+      format('opentype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-SemiBold.woff2') format('woff2'),
+  url('./Montserrat-SemiBold.otf')
+      format('opentype');
+  font-weight: 600;
+}
+
+/* 
+  number
+ */
+ @font-face {
+  font-family: 'Number';
+  src: url('./DINAlternateBold.woff') format('woff'),
+  url('./DINAlternateBold.ttf')
+      format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.montserrat-bold {
+  font-family: Montserrat;
+  font-weight: bold;
+}
+.montserrat-lighter {
+  font-family: Montserrat;
+  font-weight: lighter;
+}
+.montserrat {
+  font-family: Montserrat;
+  font-weight: normal;
+}
+
+.montserrat-semibold {
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.number {
+  font-family: Number, serif;
+}

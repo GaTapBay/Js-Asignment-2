@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Assignment 02</title>
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+
+    <!-- Assets -->
+    <link type="text/css" href="template/css/app.css" rel="stylesheet" />
+    <link type="text/css" href="template/css/animate.lite.css" rel="stylesheet" />
+    <link type="text/css" href="template/css/main.css" rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link type="text/css" href="template/fonts/font-awesome.css" rel="stylesheet" />
+    <link type="text/css" href="template/fonts/common.css" rel="stylesheet" />
+</head>
+
+<body class="container--fluid">
+    <header class="qh-header">
+        <div class="container">
+            <div class="row x--between y--center">
+                <div class="col row x--left y--center">
+                    <span class="qh-header-toggle col col--min sm JS--ToggleAside">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="qh-header-logo row y--center" href="index.html">
+                        <div class="_name">Cơ sở dữ liệu / Thống kê</div>
+                    </a>
+                </div>
+                <div class="col row x--right y--center space--10">
+                    <button class="btn primary" onclick="popup('popup__import-data');"><i
+                            class="fa fa-download icon"></i>
+                        Import</button>
+                    <button class="btn primary" onclick="exportData();"><i class="fa fa-upload icon"></i>
+                        Export</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="qh-aside">
+        <div class="qh-aside-header">
+            <div class="_button JS--ToggleAside">
+                <div class="aside--open"><i class="fa fa-arrow-left"></i></div>
+                <div class="aside--close"><i class="fa fa-bars"></i></div>
+            </div>
+            <div class="_name"><span>Bảng điều khiển</span></div>
+        </div>
+        <div class="qh-aside-main">
+            <div class="_title">Quản lí thú cưng</div>
+            <div class="_menu">
+                <ul>
+                    <li class="qh-aside-group">
+                        <a class="" href="./index.html">
+                            <div class="qh-aside-item">
+                                <div class="_icon"><i class="fa fa-home"></i></div>
+                                <div class="_card">
+                                    <span>Tổng quan</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="qh-aside-group">
+                        <a class="" href="./search.html">
+                            <div class="qh-aside-item">
+                                <div class="_icon"><i class="fa fa-search"></i></div>
+                                <div class="_card">
+                                    <span>Tìm kiếm</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="qh-aside-group">
+                        <a class="" href="./edit.html">
+                            <div class="qh-aside-item">
+                                <div class="_icon"><i class="fa fa-pencil"></i></div>
+                                <div class="_card">
+                                    <span>Chỉnh sửa</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="qh-aside-group">
+                        <a class="" href="./breed.html">
+                            <div class="qh-aside-item">
+                                <div class="_icon"><i class="fa fa-list-ul"></i></div>
+                                <div class="_card">
+                                    <span>Giống</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="qh-aside-group active">
+                        <a class="" href="./data.html">
+                            <div class="qh-aside-item">
+                                <div class="_icon"><i class="fa fa-cloud"></i></div>
+                                <div class="_card">
+                                    <span>Cơ sở dữ liệu</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </aside>
+
+    <main class="qh-main">
+        <section class="primary--bg box--10" style="box-shadow: inset rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+            <div class="row">
+                <div class="col--3 box--10">
+                    <div class="card radius--8">
+                        <div class="card-body radius--8 row y--center">
+                            <div class="col--min box--10"><img src="./template/pets.png" alt="" width="80"></div>
+                            <div class="col align--center">
+                                <h1 id="out__pets-count">0</h1>
+                                <h6>PETS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col--3 box--10">
+                    <div class="card radius--8">
+                        <div class="card-body radius--8 row y--center">
+                            <div class="col--min box--10"><img src="./template/dog.png" alt="" width="80"></div>
+                            <div class="col align--center">
+                                <h1 id="out__dog-count">0</h1>
+                                <h6>DOGS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col--3 box--10">
+                    <div class="card radius--8">
+                        <div class="card-body radius--8 row y--center">
+                            <div class="col--min box--10"><img src="./template/cat.png" alt="" width="80"></div>
+                            <div class="col align--center">
+                                <h1 id="out__cat-count">0</h1>
+                                <h6>PETS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="box--20">
+            #MAIN CONTENT
+        </section>
+
+        <!-- IMPORT -->
+        <div id="popup__import-data" class="hidden">
+            <div class="popup">
+                <div class="popup-container">
+                    <div class="card" style="width: 800px;">
+                        <form action="javascript:;" method="post" onsubmit="importFile();">
+                            <div class="card-header primary--bg row x--between y--center">
+                                Import Data
+                                <button type="button" class="btn close">Đóng</button>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-group row y--center">
+                                    <label for="in__import-file" class="col--3">Chọn tập tin</label>
+                                    <div class="col--9">
+                                        <input type="file" class="textbox" id="in__import-file" required>
+                                    </div>
+                                </div>
+                                <div class="gap--10"></div>
+                                <div class="form-group">
+                                    Chú ý: Hệ thống sẽ tự động phân loại theo danh sách giống của cơ sở. Nếu không
+                                    có giống tương ứng ( giống đã bị xóa hoặc chỉnh sửa ) hệ thống sẽ tạo giống mới.
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn primary">Tải lên và đồng bộ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+
+    </main>
+
+    <footer class="qh-footer">
+        <div class="qh-footer-backlink">
+            <div class="container">
+                <div class="row y--center x--between">
+                    <div class="qh-footer-backlink">
+
+                    </div>
+                    <div>&copy; 2023</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Controls -->
+    <script type="text/javascript" src="./script/main.js"></script>
+    <script type="text/javascript" src="./template/js/fileSaver.js"></script>
+    <script type="text/javascript" src="./script/data.js"></script>
+</body>
+
+</html>

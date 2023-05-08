@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="robots" content="index, follow" />
+	<meta name="HandheldFriendly" content="true" />
+	<title>Assignment 02</title>
+	<link rel="icon" href="./favicon.png" type="image/x-icon" />
+
+	<!-- Assets -->
+	<link type="text/css" href="template/css/app.css" rel="stylesheet" />
+	<link type="text/css" href="template/css/animate.lite.css" rel="stylesheet" />
+	<link type="text/css" href="template/css/main.css" rel="stylesheet" />
+
+	<!-- Fonts -->
+	<link type="text/css" href="template/fonts/font-awesome.css" rel="stylesheet" />
+	<link type="text/css" href="template/fonts/common.css" rel="stylesheet" />
+</head>
+
+<body class="container--fluid">
+	<header class="qh-header">
+		<div class="container">
+			<div class="row x--between y--center">
+				<div class="col row x--left y--center">
+					<span class="qh-header-toggle col col--min sm JS--ToggleAside">
+						<i class="fa fa-bars"></i>
+					</span>
+					<a class="qh-header-logo row y--center" href="index.html">
+						<div class="_name">Bộ lọc nâng cao</div>
+					</a>
+				</div>
+				<div class="col row x--right y--center space--10">
+					<button class="btn orange" id="action__export"><i class="fa fa-upload icon"></i> Export</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<aside class="qh-aside">
+		<div class="qh-aside-header">
+			<div class="_button JS--ToggleAside">
+				<div class="aside--open"><i class="fa fa-arrow-left"></i></div>
+				<div class="aside--close"><i class="fa fa-bars"></i></div>
+			</div>
+			<div class="_name"><span>Bảng điều khiển</span></div>
+		</div>
+		<div class="qh-aside-main">
+			<div class="_title">Quản lí thú cưng</div>
+			<div class="_menu">
+				<ul>
+					<li class="qh-aside-group">
+						<a class="" href="./index.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-home"></i></div>
+								<div class="_card">
+									<span>Tổng quan</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="qh-aside-group active">
+						<a class="" href="./search.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-search"></i></div>
+								<div class="_card">
+									<span>Tìm kiếm</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="qh-aside-group">
+						<a class="" href="./edit.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-pencil"></i></div>
+								<div class="_card">
+									<span>Chỉnh sửa</span>
+								</div>
+							</div>
+						</a>
+					</li>
+
+					<li class="qh-aside-group">
+						<a class="" href="./breed.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-list-ul"></i></div>
+								<div class="_card">
+									<span>Giống</span>
+								</div>
+							</div>
+						</a>
+					</li>
+
+					<li class="qh-aside-group">
+						<a class="" href="./data.html">
+							<div class="qh-aside-item">
+								<div class="_icon"><i class="fa fa-cloud"></i></div>
+								<div class="_card">
+									<span>Cơ sở dữ liệu</span>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+
+		</div>
+	</aside>
+
+	<main class="qh-main">
+		<section class="primary--bg box--20" style="box-shadow: inset rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+			<div class="row x--center">
+				<div style="width: 90%; max-width: 800px;">
+					<div class="gap"></div>
+					<form action="javascript:;" type="post" onsubmit="searchSubmit();">
+						<div class="form-group row y--center">
+							<label for="in__search-id" class="col--2 align--left">Pet ID</label>
+							<div class="col--4">
+								<input type="text" class="textbox" id="in__search-id" placeholder="Input ID">
+							</div>
+							<label for="in__search-name" class="col--2 align--center">Pet Name</label>
+							<div class="col--4">
+								<input type="text" class="textbox" id="in__search-name" placeholder="Input Name">
+							</div>
+						</div>
+						<div class="form-group row y--center">
+							<label for="in__search-type" class="col--2">Type</label>
+							<div class="col--4">
+								<select class="textbox" id="in__search-type">
+									<option value="">Select Type</option>
+									<option value="Dog">Dog</option>
+									<option value="Cat">Cat</option>
+								</select>
+							</div>
+							<label for="in__search-breed" class="col--2 align--center">
+								Breed</label>
+							<div class="col--4">
+								<select class="textbox" id="in__search-breed">
+									<option value="">Select Type</option>
+								</select>
+							</div>
+						</div>
+						<div class="gap--20"></div>
+						<div class="form-group row y--center">
+							<div class="col--2"></div>
+							<div class="checkbox col--3 space--10">
+								<input type="checkbox" id="in__search-vaccinated">
+								<label for="in__search-vaccinated">Vaccinated</label>
+							</div>
+							<div class="checkbox col--3 space--10">
+								<input type="checkbox" id="in__search-dewormed">
+								<label for="in__search-dewormed">Dewormed</label>
+							</div>
+							<div class="checkbox col--3 space--10">
+								<input type="checkbox" id="in__search-sterilized">
+								<label for="in__search-sterilized">Sterilized</label>
+							</div>
+						</div>
+						<div class="gap"></div>
+						<div class="form-group row y--center">
+							<div class="col--2"></div>
+							<div class="row y--center space--20">
+								<button type="submit" class="btn primary" style="padding-inline:50px"><i
+										class="fa fa-search"></i>
+									Tìm kiếm</button>
+								<button type="button" class="btn orange" onclick="resetSearch();"">Reset</button>
+							</div>
+						</div>
+					</form>
+					<div class=" gap--20">
+							</div>
+						</div>
+				</div>
+		</section>
+		<section class="box">
+			<div class="gap--10"></div>
+			<div class="table scroll border align--center hidden" id="area__pets-table">
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Type</th>
+							<th>Weight</th>
+							<th>Length</th>
+							<th>BMI</th>
+							<th>Breed</th>
+							<th>Color</th>
+							<th>Vaccinated</th>
+							<th>Dewormed</th>
+							<th>Sterilized</th>
+							<th>Date Added</th>
+						</tr>
+					</thead>
+					<tbody id="area__pets-result">
+
+					</tbody>
+				</table>
+				<div id="area__no-data" class="box--20">Không có kết quả nào phù hợp</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="qh-footer">
+		<div class="qh-footer-backlink">
+			<div class="container">
+				<div class="row y--center x--between">
+					<div class="qh-footer-backlink">
+
+					</div>
+					<div>&copy; 2023</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Controls -->
+	<script type="text/javascript" src="./script/main.js"></script>
+	<script type="text/javascript" src="./template/js/fileSaver.js"></script>
+	<script type="text/javascript" src="./script/search.js"></script>
+</body>
+
+</html>
