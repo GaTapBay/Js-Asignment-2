@@ -11,8 +11,7 @@ Giới thiệu và Tính năng
 - Loại lưu trữ: localStorage
 
 2. Aside bar ( Bổ sung Animation cho Sidebar )
-- Mặc định là giao diện thu gọn, khi người dùng bấm vào phím mở rộng hoặc phần trắng của aside, aside sẽ mở rộng ( điều này không có tính năng đảo ngược )
-- Giữ trạng thái aside, nếu người dùng đặt aside là mở, tải lại trang vẫn sẽ mở
+- Khi người dùng bấm vào phím mở rộng hoặc phần trắng của aside, aside sẽ mở rộng ( điều này không có tính năng đảo ngược )
 - Tự động thu gọn aside khi kích thước màn hình thay đổi
 
 3. Trang index.html
